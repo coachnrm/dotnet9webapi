@@ -4809,24 +4809,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/home/.nuget/packages/": {}
+    "/Users/somsak/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/home/Desktop/VideoGameApi/VideoGameApi.csproj",
+      "projectUniqueName": "/Users/somsak/Demo/Dotnet9/dotnet9webapi/VideoGameApi.csproj",
       "projectName": "VideoGameApi",
-      "projectPath": "/Users/home/Desktop/VideoGameApi/VideoGameApi.csproj",
-      "packagesPath": "/Users/home/.nuget/packages/",
-      "outputPath": "/Users/home/Desktop/VideoGameApi/obj/",
+      "projectPath": "/Users/somsak/Demo/Dotnet9/dotnet9webapi/VideoGameApi.csproj",
+      "packagesPath": "/Users/somsak/.nuget/packages/",
+      "outputPath": "/Users/somsak/Demo/Dotnet9/dotnet9webapi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/home/.nuget/NuGet/NuGet.Config"
+        "/Users/somsak/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4843,7 +4844,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       },
       "SdkAnalysisLevel": "9.0.100"
     },
@@ -4893,7 +4894,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
