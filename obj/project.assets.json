@@ -1013,6 +1013,40 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "MySqlConnector/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net9.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql/9.0.0-alpha.1.ci.20241207210245": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "[9.0.0, 9.0.999]",
+          "MySqlConnector": "2.4.0"
+        },
+        "compile": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Scalar.AspNetCore/1.2.47": {
         "type": "package",
         "compile": {
@@ -3595,6 +3629,49 @@
         "readme.md"
       ]
     },
+    "MySqlConnector/2.4.0": {
+      "sha512": "78M+gVOjbdZEDIyXQqcA7EYlCGS3tpbUELHvn6638A2w0pkPI625ixnzsa5staAd3N9/xFmPJtkKDYwsXpFi/w==",
+      "type": "package",
+      "path": "mysqlconnector/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/MySqlConnector.dll",
+        "lib/net462/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net48/MySqlConnector.dll",
+        "lib/net48/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/net8.0/MySqlConnector.dll",
+        "lib/net8.0/MySqlConnector.xml",
+        "lib/net9.0/MySqlConnector.dll",
+        "lib/net9.0/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.4.0.nupkg.sha512",
+        "mysqlconnector.nuspec"
+      ]
+    },
+    "Pomelo.EntityFrameworkCore.MySql/9.0.0-alpha.1.ci.20241207210245": {
+      "sha512": "QD3oSxszpszSXRvheZM9R/49uZ6IWy9DsLtz6jZAoUSdy1J8uPRBhwqUxGdXWHehUvXRWcfYJ4y6b92UcZNlyA==",
+      "type": "package",
+      "path": "pomelo.entityframeworkcore.mysql/9.0.0-alpha.1.ci.20241207210245",
+      "files": [
+        ".nupkg.metadata",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.xml",
+        "pomelo.entityframeworkcore.mysql.9.0.0-alpha.1.ci.20241207210245.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.nuspec"
+      ]
+    },
     "Scalar.AspNetCore/1.2.47": {
       "sha512": "Fu5S/11bjLe4qZnPbH363GItpqK8+moxkg9dB1WOq4jl7RjZygfj1UOVd54Ue9atxXDi/lx/nXM2zQXgiC3xJg==",
       "type": "package",
@@ -4803,25 +4880,27 @@
     "net9.0": [
       "Microsoft.AspNetCore.OpenApi >= 9.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.0",
+      "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0",
+      "Pomelo.EntityFrameworkCore.MySql >= 9.0.0-alpha.1.ci.20241207210245",
       "Scalar.AspNetCore >= 1.2.47"
     ]
   },
   "packageFolders": {
-    "/Users/home/.nuget/packages/": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/home/Desktop/VideoGameApi/VideoGameApi.csproj",
+      "projectUniqueName": "D:\\dotnet9webapi\\VideoGameApi.csproj",
       "projectName": "VideoGameApi",
-      "projectPath": "/Users/home/Desktop/VideoGameApi/VideoGameApi.csproj",
-      "packagesPath": "/Users/home/.nuget/packages/",
-      "outputPath": "/Users/home/Desktop/VideoGameApi/obj/",
+      "projectPath": "D:\\dotnet9webapi\\VideoGameApi.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "D:\\dotnet9webapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/home/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -4859,6 +4938,12 @@
             "target": "Package",
             "version": "[9.0.0, )"
           },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[9.0.0, )"
@@ -4868,6 +4953,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.0, )"
+          },
+          "Pomelo.EntityFrameworkCore.MySql": {
+            "target": "Package",
+            "version": "[9.0.0-alpha.1.ci.20241207210245, )"
           },
           "Scalar.AspNetCore": {
             "target": "Package",
@@ -4893,7 +4982,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
