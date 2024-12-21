@@ -68,5 +68,24 @@ namespace VideoGameApi.Controllers
             return NoContent();
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteVideoGames([FromBody] List<int> ids)
+        {
+            if (ids == null || !ids.Any())
+                return BadRequest("No IDs provided.");
+
+            var games = await _context.VideoGames
+                .Where(game => ids.Contains(game.Id))
+                .ToListAsync();
+
+            if (!games.Any())
+                return NotFound("No matching games found.");
+
+            _context.VideoGames.RemoveRange(games);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
 }
