@@ -38,6 +38,32 @@ namespace VideoGameApi.Controllers
             return CreatedAtAction(nameof(GetVideoGameByid), new {id = newGame.Id }, newGame);
         }
 
+        [HttpPost("addmoreone")]
+        public async Task<ActionResult<IEnumerable<string>>> AddVideoGames(IEnumerable<VideoGame> newGames)
+        {
+            if (newGames == null || !newGames.Any())
+                return BadRequest("No video games provided.");
+
+            // Clear the change tracker
+            _context.ChangeTracker.Clear();
+
+            var createdGames = new List<VideoGame>();
+            foreach (var game in newGames)
+            {
+                if (game == null) continue;
+                game.Id = 0; // Reset Id if it's auto-generated
+                _context.VideoGames.Add(game);
+                createdGames.Add(game);
+            }
+
+            await _context.SaveChangesAsync();
+
+            // Generate URIs for each created resource
+            var uris = createdGames.Select(game => Url.Action(nameof(GetVideoGameByid), new { id = game.Id })).ToList();
+
+            return Created(string.Join(",", uris), createdGames);
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateVideoGame(int id, VideoGame updatedGame)
         {
