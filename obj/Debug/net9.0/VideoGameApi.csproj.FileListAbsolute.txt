@@ -153,6 +153,7 @@
 /Users/home/Desktop/VideoGameApi/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
 /Users/home/Desktop/VideoGameApi/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/home/Desktop/VideoGameApi/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+<<<<<<< HEAD
 D:\dotnet9webapi\bin\Debug\net9.0\appsettings.Development.json
 D:\dotnet9webapi\bin\Debug\net9.0\appsettings.json
 D:\dotnet9webapi\bin\Debug\net9.0\VideoGameApi.staticwebassets.endpoints.json
@@ -311,3 +312,6 @@ D:\dotnet9webapi\obj\Debug\net9.0\refint\VideoGameApi.dll
 D:\dotnet9webapi\obj\Debug\net9.0\VideoGameApi.pdb
 D:\dotnet9webapi\obj\Debug\net9.0\VideoGameApi.genruntimeconfig.cache
 D:\dotnet9webapi\obj\Debug\net9.0\ref\VideoGameApi.dll
+=======
+/Users/home/Desktop/VideoGameApi/obj/Debug/net9.0/VideoGameApi.sourcelink.json
+>>>>>>> ca15b9889c74996269d52215e0efee6aa1e52a1d

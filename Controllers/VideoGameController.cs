@@ -38,6 +38,32 @@ namespace VideoGameApi.Controllers
             return CreatedAtAction(nameof(GetVideoGameByid), new {id = newGame.Id }, newGame);
         }
 
+        [HttpPost("addmoreone")]
+        public async Task<ActionResult<IEnumerable<string>>> AddVideoGames(IEnumerable<VideoGame> newGames)
+        {
+            if (newGames == null || !newGames.Any())
+                return BadRequest("No video games provided.");
+
+            // Clear the change tracker
+            _context.ChangeTracker.Clear();
+
+            var createdGames = new List<VideoGame>();
+            foreach (var game in newGames)
+            {
+                if (game == null) continue;
+                game.Id = 0; // Reset Id if it's auto-generated
+                _context.VideoGames.Add(game);
+                createdGames.Add(game);
+            }
+
+            await _context.SaveChangesAsync();
+
+            // Generate URIs for each created resource
+            var uris = createdGames.Select(game => Url.Action(nameof(GetVideoGameByid), new { id = game.Id })).ToList();
+
+            return Created(string.Join(",", uris), createdGames);
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateVideoGame(int id, VideoGame updatedGame)
         {
@@ -63,6 +89,25 @@ namespace VideoGameApi.Controllers
                 return NotFound();
 
             _context.VideoGames.Remove(game);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteVideoGames([FromBody] List<int> ids)
+        {
+            if (ids == null || !ids.Any())
+                return BadRequest("No IDs provided.");
+
+            var games = await _context.VideoGames
+                .Where(game => ids.Contains(game.Id))
+                .ToListAsync();
+
+            if (!games.Any())
+                return NotFound("No matching games found.");
+
+            _context.VideoGames.RemoveRange(games);
             await _context.SaveChangesAsync();
 
             return NoContent();
